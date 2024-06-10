@@ -2,13 +2,12 @@ const User = require("../models/user");
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-
 const createUser = async (req, res) => {
     try {
         const { username, email, password } = req.body;
 
         const existingUser = await User.existingUser(username, email);
-        if (existingUser==null || existingUser.length > 0) {
+        if (existingUser == null || existingUser.length > 0) {
             return res.status(400).json({ message: "User with this username or email already exists" });
         }
 
@@ -17,68 +16,107 @@ const createUser = async (req, res) => {
         res.json(newUser);
     } catch (error) {
         console.error(error.message);
-        res.status(500).json({ message: "Error adding user to database"});
-    } 
+        res.status(500).json({ message: "Error adding user to database" });
+    }
 };
 
-const deleteUser = async (req, res) => { //rastaviti na delete your account i delete user by admin
+const deleteYourAccount = async (req, res) => { //for deleting own account
     try {
-        const { user_id } = req.body;
-        const user_role = req.user.user_role; 
+        const authHeader = req.headers.authorization;
+        const token = authHeader.split(' ')[1];
+        const user = jwt.verify(token, '${process.env.JWT_SECRET}');
 
-        if (user_role !== 'admin' || req.user.user_id !== user_id) {
-            return res.status(403).json({ message: "Permission denied. You can only delete your own account."});
+        const user_id = user.user_id;
+        const deletedUser = await User.deleteUser(user_id);
+        res.json(deletedUser);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).json({ message: "Error deleting user from database" });
+    }
+};
+
+
+const deleteUser = async (req, res) => { //for admin to delete users
+    try {
+        const authHeader = req.headers.authorization;
+        const token = authHeader.split(' ')[1];
+        const user = jwt.verify(token, '${process.env.JWT_SECRET}');
+
+        const { user_id } = req.body; //
+        const user_role = user.user_role;
+
+        if (user_role !== 'administrator') {
+            return res.status(403).json({ message: "Permission denied. You can only delete your own account." });
         }
 
         const deletedUser = await User.deleteUser(user_id);
         res.json(deletedUser);
     } catch (error) {
         console.error(error.message);
-        res.status(500).json({ message: "Error deleting user from database"});
+        res.status(500).json({ message: "Error deleting user from database" });
     }
 };
 
 const uploadProfilePicture = async (req, res) => {
     try {
-        const { user_id, profile_picture } = req.body;
+        const authHeader = req.headers.authorization;
+        const token = authHeader.split(' ')[1];
+        const user = jwt.verify(token, '${process.env.JWT_SECRET}');
+
+        const user_id = user.user_id;
+        const { profile_picture } = req.body;
         const updatedUser = await User.uploadProfilePicture(user_id, profile_picture);
         res.json(updatedUser);
     } catch (error) {
         console.error(error.message);
-        res.status(500).json({ message: "Error updating user profile picture"});
+        res.status(500).json({ message: "Error updating user profile picture" });
     }
 };
 
 const removeProfilePicture = async (req, res) => {
     try {
-        const { user_id } = req.body;
+        const authHeader = req.headers.authorization;
+        const token = authHeader.split(' ')[1];
+        const user = jwt.verify(token, '${process.env.JWT_SECRET}');
+
+        const user_id = user.user_id;
         const updatedUser = await User.removeProfilePicture(user_id);
         res.json(updatedUser);
     } catch (error) {
         console.error(error.message);
-        res.status(500).json({ message: "Error removing user profile picture"});
+        res.status(500).json({ message: "Error removing user profile picture" });
     }
 };
 
 const updateEmail = async (req, res) => {
     try {
-        const { user_id, email } = req.body;
+        const authHeader = req.headers.authorization;
+        const token = authHeader.split(' ')[1];
+        const user = jwt.verify(token, '${process.env.JWT_SECRET}');
+
+        const user_id = user.user_id;
+        const { email } = req.body;
+
+        const existingUser = await User.existingUser(null, email); //null is userId so that it searches by email only
+        if (existingUser.length > 0) {
+            return res.status(400).json({ message: "User with this email already exists" });
+        }
+
         const updatedUser = await User.updateEmail(user_id, email);
         res.json(updatedUser);
     } catch (error) {
         console.error(error.message);
-        res.status(500).json({ message: "Error updating user email"});
+        res.status(500).json({ message: "Error updating user email" });
     }
 };
 
-const updatePassword = async (req, res) => { //test on frontend because of authorization -> localhost:3000/change-password
+const updatePassword = async (req, res) => {
     try {
         const authHeader = req.headers.authorization;
-        const token = authHeader.split(' ')[1]; 
+        const token = authHeader.split(' ')[1];
         const user = jwt.verify(token, '${process.env.JWT_SECRET}');
-        
-        const user_id = user.user_id;
 
+        const user_id = user.user_id;
         const { password } = req.body;
 
         if (password.length < 3) { //change to 8(?) after testing
@@ -91,16 +129,44 @@ const updatePassword = async (req, res) => { //test on frontend because of autho
         res.json(updatedUser);
     } catch (error) {
         console.error(error.message);
-        res.status(500).json({ message: "Error updating user password"});
+        res.status(500).json({ message: "Error updating user password" });
     }
 };
 
+const getUserByUsername = async (req, res) => {
+    try {
+        const { username } = req.params;
+        const user = await User.getUserByUsername(username);
+        res.json(user);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).json({ message: "Error getting user from database" });
+    }
+};
+
+const getUsernameByUserId = async (req, res) => {
+    try {
+        const authHeader = req.headers.authorization;
+        const token = authHeader.split(' ')[1];
+        jwt.verify(token, '${process.env.JWT_SECRET}');
+
+        const { user_id } = req.params;
+        const user = await User.getUsernameByUserId(user_id);
+        res.json(user);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).json({ message: "Error getting user from database" });
+    }
+};
 
 module.exports = {
     createUser,
+    deleteYourAccount,
     deleteUser,
     uploadProfilePicture,
     removeProfilePicture,
     updateEmail,
     updatePassword,
+    getUserByUsername,
+    getUsernameByUserId
 }; 

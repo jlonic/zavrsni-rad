@@ -4,10 +4,10 @@ const trackController = require("../controllers/trackController");
 
 router.post("/add", trackController.addTrack);
 router.delete("/delete/:track_id", trackController.deleteTrack);
-//router.put("/update/:track_id", trackController.updateTrack);
+router.put("/update/:track_id", trackController.updateTrack);
 router.get("/album/:album_id", trackController.getTracksByAlbum);
 router.get("/artist/:artist_id", trackController.getTracksByArtist);
-
+router.get("/:track_id", trackController.getTrackByTrackId);
 
 
 module.exports = router;

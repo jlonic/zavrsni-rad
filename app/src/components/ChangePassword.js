@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function ChangePassword() {
+const ChangePassword = () => {
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -19,17 +19,17 @@ function ChangePassword() {
                 },
                 body: JSON.stringify({ password: password }),
             });
-        const data = await response.json();
+            const data = await response.json();
 
-        if (response.ok) {
-            setMessage('Password updated successfully!');
-            setPassword('');
-        } else {
-            setMessage(`Failed to update password: ${data.message}`);
-        }
+            if (response.ok) {
+                setMessage('Password updated successfully!');
+                setPassword('');
+            } else {
+                setMessage(data.message);
+            }
         } catch (error) {
-        console.error('Error:', error);
-        setMessage('Failed to update password');
+            console.error(error);
+            setMessage('Failed to update password');
         }
     };
 
@@ -37,7 +37,7 @@ function ChangePassword() {
         if (!localStorage.getItem('token')) {
             navigate('/login');
         }
-    }, [navigate]); 
+    }, [navigate]);
 
 
     return (

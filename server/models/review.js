@@ -3,28 +3,28 @@ const pool = require("../config/db");
 const reviewArtist = async (user_id, artist_id, review_text, rating) => {
     const newReview = await pool.query(
         "INSERT INTO reviews (user_id, artist_id, review_text, rating) VALUES($1, $2, $3, $4) RETURNING *",
-        [user_id, artist_id, review_text, rating]);    
+        [user_id, artist_id, review_text, rating]);
     return newReview.rows;
 };
 
 const reviewAlbum = async (user_id, album_id, review_text, rating) => {
     const newReview = await pool.query(
         "INSERT INTO reviews (user_id, album_id, review_text, rating) VALUES($1, $2, $3, $4) RETURNING *",
-        [user_id, album_id, review_text, rating]);    
+        [user_id, album_id, review_text, rating]);
     return newReview.rows;
 };
 
 const reviewTrack = async (user_id, track_id, review_text, rating) => {
     const newReview = await pool.query(
         "INSERT INTO reviews (user_id, track_id, review_text, rating) VALUES($1, $2, $3, $4) RETURNING *",
-        [user_id, track_id, review_text, rating]);    
+        [user_id, track_id, review_text, rating]);
     return newReview.rows;
 };
 
-const editReview = async (review_id, review_text, rating) => {
+const editReview = async (review_id, review_text, rating, edited_on) => {
     const editedReview = await pool.query(
-        "UPDATE reviews SET review_text = $1, rating = $2 WHERE review_id = $3 RETURNING *",
-        [review_text, rating, review_id]);
+        "UPDATE reviews SET review_text = $1, rating = $2, edited_on = $3, WHERE review_id = $4 RETURNING *",
+        [review_text, rating, edited_on, review_id]);
     return editedReview.rows;
 };
 
@@ -56,6 +56,13 @@ const getTrackReviews = async (track_id) => {
     return trackReviews.rows;
 };
 
+const getUserIdFromReview = async (review_id) => {
+    const user_id = await pool.query(
+        "SELECT user_id FROM reviews WHERE review_id = $1",
+        [review_id]);
+    return user_id.rows[0].user_id;
+};
+
 module.exports = {
     reviewArtist,
     reviewAlbum,
@@ -65,4 +72,5 @@ module.exports = {
     getArtistReviews,
     getAlbumReviews,
     getTrackReviews,
+    getUserIdFromReview,
 };

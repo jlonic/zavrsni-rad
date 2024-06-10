@@ -14,8 +14,16 @@ const unfollowUser = async (follower_id, followed_id) => {
     return deletedFollow.rows;
 };
 
+const checkFollowStatus = async (follower_id, followed_id) => {
+    const followStatus = await pool.query(
+        "SELECT * FROM follows WHERE follower_id = $1 AND followed_id = $2",
+        [follower_id, followed_id]);
+    return followStatus.rows;
+};
+
 
 module.exports = {
     followUser,
     unfollowUser,
+    checkFollowStatus,
 };

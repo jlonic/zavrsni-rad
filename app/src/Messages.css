@@ -1,0 +1,12 @@
+.messages-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.sent {
+    align-self: flex-end;
+}
+
+.received {
+    align-self: flex-start;
+}

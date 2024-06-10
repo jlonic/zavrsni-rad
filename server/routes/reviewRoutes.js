@@ -7,8 +7,8 @@ router.post("/reviewAlbum", reviewController.reviewAlbum);
 router.post("/reviewTrack", reviewController.reviewTrack);
 router.put("/editReview", reviewController.editReview);
 router.delete("/deleteReview", reviewController.deleteReview);
-router.get("/getArtistReviews", reviewController.getArtistReviews);
-router.get("/getAlbumReviews", reviewController.getAlbumReviews);
-router.get("/getTrackReviews", reviewController.getTrackReviews);
+router.get("/artist/:artist_id", reviewController.getArtistReviews);
+router.get("/album/:album_id", reviewController.getAlbumReviews);
+router.get("/track/:track_id", reviewController.getTrackReviews);
 
 module.exports = router;

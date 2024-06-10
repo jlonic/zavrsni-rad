@@ -15,7 +15,7 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
+
         const user = {
             usernameOrEmail,
             password
@@ -34,19 +34,19 @@ const Login = () => {
 
             if (response.ok) {
                 localStorage.setItem('token', data.token);
-                window.location.href = '/change-password'; //redirect after login (change to /dashboard)
+                window.location.href = '/dashboard'; //redirect after login (change to /dashboard)
             } else {
-                setMessage(`Login failed: ${data.message}`);
+                setMessage(data.message);
             }
         } catch (error) {
-            console.error('Error:', error);
+            console.error(error);
             setMessage('Login failed');
         };
     };
 
     return (
         <form onSubmit={handleSubmit}>
-             <div>
+            <div>
                 <label>Username or Email:</label>
                 <input type="text" value={usernameOrEmail} onChange={handleUsernameOrEmailChange} />
             </div>
@@ -57,7 +57,7 @@ const Login = () => {
             <div>
                 <button type="submit">Login</button>
                 {<p>{message}</p>}
-            </div> 
+            </div>
         </form>
     );
 };
