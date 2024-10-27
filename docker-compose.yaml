@@ -1,0 +1,34 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: db
+    environment:
+      - POSTGRES_DB=app
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./server/database_dump.sql:/docker-entrypoint-initdb.d/database_dump.sql
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: server
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+  client:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    container_name: client
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
+
+volumes:
+  postgres_data:
