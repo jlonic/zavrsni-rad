@@ -13,6 +13,7 @@ This is a web application for rating and reviewing music created as part of my f
 
 - **Search Functionality**: Users can search for artists, albums, and songs.
 - **Comments and Ratings**: Users can leave comments and ratings on artist, album, and song pages.
+- **Statistics**: The application displays stats on the dashboard based on ratings/reviews left by users.
 - **Follow Artists**: Users can follow their favorite artists and receive notifications about new releases.
 - **Favorites**: Users can mark albums and songs as favorites, which will show up on their profiles.
 - **Charts Page**: Fetches data directly from [Billboard.com](https://www.billboard.com) charts.
