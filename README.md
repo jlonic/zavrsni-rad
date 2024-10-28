@@ -33,7 +33,7 @@ To run the application, ensure you have Docker installed. Then follow these step
 
 2. Navigate into the cloned directory:
    ```bash
-   cd zavrsni
+   cd zavrsni-rad
    ```
 
 3. Run the application using Docker Compose:
