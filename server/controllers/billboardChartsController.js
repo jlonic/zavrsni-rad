@@ -2,8 +2,8 @@ const { exec } = require("child_process");
 
 const getTopAlbums = async (_, res) => {
     try {
-        exec("/usr/src/app/venv/bin/python ./python-scripts/getTop200Albums.py", (error, data) => { //for running in docker
-        // exec("python3 ./python-scripts/getTop200Albums.py", (error, data) => { //for running locally
+        // exec("/usr/src/app/venv/bin/python ./python-scripts/getTop200Albums.py", (error, data) => { //for running in docker
+        exec("python3 ./python-scripts/getTop200Albums.py", (error, data) => { //for running locally
             if (error) {
                 return res.status(500).send({ message: "Error fetching top albums" });
             }
@@ -16,8 +16,8 @@ const getTopAlbums = async (_, res) => {
 
 const getHot100 = async (_, res) => {
     try {
-        exec("/usr/src/app/venv/bin/python ./python-scripts/getHot100.py", (error, data) => { //for running in docker
-        // exec("python3 ./python-scripts/getHot100.py", (error, data) => { //for running locally
+        // exec("/usr/src/app/venv/bin/python ./python-scripts/getHot100.py", (error, data) => { //for running in docker
+        exec("python3 ./python-scripts/getHot100.py", (error, data) => { //for running locally
             if (error) {
                 return res.status(500).send({ message: "Error fetching top songs" });
             }
@@ -30,8 +30,8 @@ const getHot100 = async (_, res) => {
 
 const getGlobal200 = async (_, res) => {
     try {
-        exec("/usr/src/app/venv/bin/python ./python-scripts/getGlobal200.py", (error, data) => { //for running in docker
-        // exec("python3 ./python-scripts/getGlobal200.py", (error, data) => { //for running locally
+        // exec("/usr/src/app/venv/bin/python ./python-scripts/getGlobal200.py", (error, data) => { //for running in docker
+        exec("python3 ./python-scripts/getGlobal200.py", (error, data) => { //for running locally
             if (error) {
                 return res.status(500).send({ message: "Error fetching top songs" });
             }
@@ -44,8 +44,8 @@ const getGlobal200 = async (_, res) => {
 
 const getTop100Artists = async (_, res) => {
     try {
-        exec("/usr/src/app/venv/bin/python ./python-scripts/getTop100Artists.py", (error, data) => { //for running in docker
-        // exec("python ./python-scripts/getTop100Artists.py", (error, data) => { //for running locally
+        // exec("/usr/src/app/venv/bin/python ./python-scripts/getTop100Artists.py", (error, data) => { //for running in docker
+        exec("python ./python-scripts/getTop100Artists.py", (error, data) => { //for running locally
             if (error) {
                 console.error(`Exec error: ${error.message}`);
                 return res.status(500).send({ message: "Error fetching top artists" });
