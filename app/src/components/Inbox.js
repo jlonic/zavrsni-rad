@@ -15,7 +15,7 @@ const Inbox = () => {
     const getAllConversations = useCallback(async () => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch('https://zavrsni-rad-backend-gdih.onrender.com/messages/getConversations', {
+            const response = await fetch('https://zavrsni-rad-backend-43pq.onrender.com/messages/getConversations', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ const Inbox = () => {
             setUserId(decodedToken.user_id);
         }
 
-        const newSocket = io('https://zavrsni-rad-backend-gdih.onrender.com');
+        const newSocket = io('https://zavrsni-rad-backend-43pq.onrender.com');
         setSocket(newSocket);
         getAllConversations();
     }, [navigate, getAllConversations]);

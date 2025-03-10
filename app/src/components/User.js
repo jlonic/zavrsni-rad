@@ -45,7 +45,7 @@ const User = () => {
             const token = localStorage.getItem('token');
 
             try {
-                const userResponse = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/users/${username}`, {
+                const userResponse = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/users/${username}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ const User = () => {
                 const userData = await userResponse.json();
                 if (userResponse.ok) {
                     setUser(userData[0]);
-                    const followStatusResponse = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/follows/checkFollowStatus/${userData[0].user_id}`, {
+                    const followStatusResponse = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/follows/checkFollowStatus/${userData[0].user_id}`, {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
@@ -87,7 +87,7 @@ const User = () => {
         const fetchUserFavorites = async () => {
             const token = localStorage.getItem('token');
             try {
-                const response = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/favorites/user-favorite-albums/${username}`, {
+                const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/favorites/user-favorite-albums/${username}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -106,7 +106,7 @@ const User = () => {
             }
 
             try {
-                const response = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/favorites/user-favorite-tracks/${username}`, {
+                const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/favorites/user-favorite-tracks/${username}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -128,7 +128,7 @@ const User = () => {
         const recentlyReviewed = async () => {
             const token = localStorage.getItem('token');
             try {
-                const response1 = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/reviews/artist-reviews/${username}`, {
+                const response1 = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/reviews/artist-reviews/${username}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -141,7 +141,7 @@ const User = () => {
                     setMessage(data1.message);
                 }
 
-                const response2 = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/reviews/album-reviews/${username}`, {
+                const response2 = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/reviews/album-reviews/${username}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -154,7 +154,7 @@ const User = () => {
                     setMessage(data2.message);
                 }
 
-                const response3 = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/reviews/track-reviews/${username}`, {
+                const response3 = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/reviews/track-reviews/${username}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -183,7 +183,7 @@ const User = () => {
     const followUser = async () => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch('https://zavrsni-rad-backend-gdih.onrender.com/follows/followUser', {
+            const response = await fetch('https://zavrsni-rad-backend-43pq.onrender.com/follows/followUser', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -210,7 +210,7 @@ const User = () => {
     const unfollowUser = async () => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch('https://zavrsni-rad-backend-gdih.onrender.com/follows/unfollowUser', {
+            const response = await fetch('https://zavrsni-rad-backend-43pq.onrender.com/follows/unfollowUser', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -251,7 +251,7 @@ const User = () => {
                     <>
                         <div className="flex justify-between items-center">
                             <div className="flex items-center">
-                                <img src={`https://zavrsni-rad-backend-gdih.onrender.com${user.profile_picture}`} alt='' className='h-48 w-48 rounded-full' />
+                                <img src={`https://zavrsni-rad-backend-43pq.onrender.com${user.profile_picture}`} alt='' className='h-48 w-48 rounded-full' />
                                 <br />
                                 <div className="text-6xl font-bold pl-4 pr-4">
                                     {user.username}

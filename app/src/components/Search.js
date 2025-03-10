@@ -13,7 +13,7 @@ const Search = () => {
 
         if (query.length > 1) {
             try {
-                const response = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/search/${category}/${query}`, {
+                const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/search/${category}/${query}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -119,7 +119,7 @@ const Search = () => {
                                 result.username && (
                                     <div key={index} className='px-4 py-2 border-b border-gray-200'>
                                         <a href={`https://zavrsni-rad-two.vercel.app/users/${result.username}`} className='flex items-center space-x-2'>
-                                            <img src={`https://zavrsni-rad-backend-gdih.onrender.com${result.profile_picture}`} alt='' className="w-10 h-10 mr-2 rounded-full" />
+                                            <img src={`https://zavrsni-rad-backend-43pq.onrender.com${result.profile_picture}`} alt='' className="w-10 h-10 mr-2 rounded-full" />
                                             <span className='font-bold'>{result.username}</span>
                                         </a>
                                     </div>

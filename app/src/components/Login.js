@@ -22,7 +22,7 @@ const Login = () => {
         };
 
         try {
-            const response = await fetch('https://zavrsni-rad-backend-gdih.onrender.com/login/', {
+            const response = await fetch('https://zavrsni-rad-backend-43pq.onrender.com/login/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

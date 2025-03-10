@@ -39,7 +39,7 @@ const Album = () => {
 
     const fetchAlbumReviews = useCallback(async () => {
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/reviews/album/${album_id}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/reviews/album/${album_id}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ const Album = () => {
         }
         const fetchAlbum = async () => {
             try {
-                const response = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/albums/${album_id}`, {
+                const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/albums/${album_id}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -82,7 +82,7 @@ const Album = () => {
                 if (response.ok) {
                     setAlbum(data[0]);
                     setDeleteStatus(data[0].is_deleted);
-                    const favoriteStatusResponse = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/favorites/check-album-status/${album_id}`, {
+                    const favoriteStatusResponse = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/favorites/check-album-status/${album_id}`, {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
@@ -112,7 +112,7 @@ const Album = () => {
 
         const fetchTracks = async () => {
             try {
-                const response = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/tracks/album/${album_id}`, {
+                const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/tracks/album/${album_id}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -134,7 +134,7 @@ const Album = () => {
 
         const fetchAlbumRating = async () => {
             try {
-                const response = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/albums/rating/${album_id}`, {
+                const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/albums/rating/${album_id}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -162,7 +162,7 @@ const Album = () => {
     const deleteReview = async (review_id) => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch('https://zavrsni-rad-backend-gdih.onrender.com/reviews/deleteReview', {
+            const response = await fetch('https://zavrsni-rad-backend-43pq.onrender.com/reviews/deleteReview', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -186,7 +186,7 @@ const Album = () => {
     const handleReport = async (reviewId) => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch('https://zavrsni-rad-backend-gdih.onrender.com/reports/newReport', {
+            const response = await fetch('https://zavrsni-rad-backend-43pq.onrender.com/reports/newReport', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -232,7 +232,7 @@ const Album = () => {
         };
 
         try {
-            const response = await fetch('https://zavrsni-rad-backend-gdih.onrender.com/reviews/reviewAlbum', {
+            const response = await fetch('https://zavrsni-rad-backend-43pq.onrender.com/reviews/reviewAlbum', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -259,7 +259,7 @@ const Album = () => {
     const addToFavorites = async () => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/favorites/add-favorite-album/`, {
+            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/favorites/add-favorite-album/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -286,7 +286,7 @@ const Album = () => {
     const removeFromFavorites = async () => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/favorites/remove-favorite-album/`, {
+            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/favorites/remove-favorite-album/`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -406,7 +406,7 @@ const Album = () => {
                                 <div key={review.review_id} className="bg-gray-800 p-4 rounded mb-4">
                                     <p className="flex items-center">
                                         <a href={`https://zavrsni-rad-two.vercel.app/users/${review.username}`}>
-                                            <img src={`https://zavrsni-rad-backend-gdih.onrender.com${review.profile_picture}`} alt='avatar' className="w-6 h-6 rounded-full mr-2" />
+                                            <img src={`https://zavrsni-rad-backend-43pq.onrender.com${review.profile_picture}`} alt='avatar' className="w-6 h-6 rounded-full mr-2" />
                                             {review.username}
                                         </a>
                                     </p>

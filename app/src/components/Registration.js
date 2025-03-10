@@ -30,7 +30,7 @@ const Registration = () => {
         };
 
         try {
-            const response = await fetch('https://zavrsni-rad-backend-gdih.onrender.com/users/register', {
+            const response = await fetch('https://zavrsni-rad-backend-43pq.onrender.com/users/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

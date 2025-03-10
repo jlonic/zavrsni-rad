@@ -21,7 +21,7 @@ const Dashboard = () => {
 
   const getFollows = useCallback(async () => {
     try {
-      const response = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/follows/getFollows`, {
+      const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/follows/getFollows`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ const Dashboard = () => {
     let allReviews = [];
     try {
       for (let i = 0; i < follows.length; i++) {
-        const response1 = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/reviews/artist-reviews/${follows[i].username}`, {
+        const response1 = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/reviews/artist-reviews/${follows[i].username}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ const Dashboard = () => {
           setMessage(data1.message);
         }
 
-        const response2 = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/reviews/album-reviews/${follows[i].username}`, {
+        const response2 = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/reviews/album-reviews/${follows[i].username}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -79,7 +79,7 @@ const Dashboard = () => {
           setMessage(data2.message);
         }
 
-        const response3 = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/reviews/track-reviews/${follows[i].username}`, {
+        const response3 = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/reviews/track-reviews/${follows[i].username}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
