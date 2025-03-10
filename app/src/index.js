@@ -12,4 +12,4 @@ root.render(
 );
 
 
-root.render(<AppRouter />);
+// root.render(<AppRouter />);
