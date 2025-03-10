@@ -13,7 +13,7 @@ const Stats = () => {
         const fetchData = async () => {
             try {
                 setLoading(true); // Set loading state
-                const response1 = await fetch(`http://localhost:5000/reviews/top5AverageRating${selectedType}`, {
+                const response1 = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/reviews/top5AverageRating${selectedType}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ const Stats = () => {
                     console.error(data1.message);
                 }
 
-                const response2 = await fetch(`http://localhost:5000/reviews/top5MostReviewed${selectedType}`, {
+                const response2 = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/reviews/top5MostReviewed${selectedType}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ const Stats = () => {
                     console.error(data2.message);
                 }
 
-                const response3 = await fetch(`http://localhost:5000/reviews/latest5Revieved${selectedType}`, {
+                const response3 = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/reviews/latest5Revieved${selectedType}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',

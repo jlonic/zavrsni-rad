@@ -27,7 +27,7 @@ const Moderator = () => {
     const getAllReports = async () => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch('http://localhost:5000/reports/getReportsAndReviews', {
+            const response = await fetch('https://zavrsni-rad-backend-gdih.onrender.com/reports/getReportsAndReviews', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ const Moderator = () => {
     const deleteReport = async (report_id) => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch('http://localhost:5000/reports/deleteReport', {
+            const response = await fetch('https://zavrsni-rad-backend-gdih.onrender.com/reports/deleteReport', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ const Moderator = () => {
     const deleteReview = async (review_id) => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch('http://localhost:5000/reviews/deleteReview', {
+            const response = await fetch('https://zavrsni-rad-backend-gdih.onrender.com/reviews/deleteReview', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

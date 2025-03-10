@@ -15,7 +15,7 @@ const Inbox = () => {
     const getAllConversations = useCallback(async () => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch('http://localhost:5000/messages/getConversations', {
+            const response = await fetch('https://zavrsni-rad-backend-gdih.onrender.com/messages/getConversations', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ const Inbox = () => {
             setUserId(decodedToken.user_id);
         }
 
-        const newSocket = io('http://localhost:5000');
+        const newSocket = io('https://zavrsni-rad-backend-gdih.onrender.com');
         setSocket(newSocket);
         getAllConversations();
     }, [navigate, getAllConversations]);
@@ -78,11 +78,11 @@ const Inbox = () => {
                             <div key={conversation.message_id} className="bg-gray-800 p-4 rounded mb-4">
                                 <h3>
                                     {userId === conversation.sender_id ? (
-                                        <a href={`http://localhost:3000/messages/${conversation.receiver_id}`} className="text-gray-300 hover:underline">
+                                        <a href={`https://zavrsni-rad-two.vercel.app/messages/${conversation.receiver_id}`} className="text-gray-300 hover:underline">
                                             {conversation.receiver_username}
                                         </a>
                                     ) : (
-                                        <a href={`http://localhost:3000/messages/${conversation.sender_id}`} className="text-gray-300 hover:underline">
+                                        <a href={`https://zavrsni-rad-two.vercel.app/messages/${conversation.sender_id}`} className="text-gray-300 hover:underline">
                                             {conversation.sender_username}
                                         </a>
                                     )}

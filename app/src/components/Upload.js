@@ -28,7 +28,7 @@ const Upload = () => {
         formData.append('image', file);
 
         try {
-            const response = await fetch('http://localhost:5000/upload', {
+            const response = await fetch('https://zavrsni-rad-backend-gdih.onrender.com/upload', {
                 method: 'POST',
                 body: formData,
             });
@@ -36,7 +36,7 @@ const Upload = () => {
             const data = await response.json();
             if (response.ok) {
                 setFilePath(data.filePath);
-                const updateUser = await fetch('http://localhost:5000/users/uploadProfilePicture', {
+                const updateUser = await fetch('https://zavrsni-rad-backend-gdih.onrender.com/users/uploadProfilePicture', {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',

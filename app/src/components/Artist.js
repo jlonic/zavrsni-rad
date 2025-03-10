@@ -42,7 +42,7 @@ const Artist = () => {
 
     const fetchArtistReviews = useCallback(async () => {
         try {
-            const response = await fetch(`http://localhost:5000/reviews/artist/${artist_id}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/reviews/artist/${artist_id}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -74,7 +74,7 @@ const Artist = () => {
         }
         const fetchArtistAndFollowStatus = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/artists/${artist_id}`, {
+                const response = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/artists/${artist_id}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -86,7 +86,7 @@ const Artist = () => {
                 if (response.ok) {
                     setArtist(data[0]);
                     setDeleteStatus(data[0].is_deleted);
-                    const followStatusResponse = await fetch(`http://localhost:5000/follows/checkArtistFollowStatus/${data[0].artist_id}`, {
+                    const followStatusResponse = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/follows/checkArtistFollowStatus/${data[0].artist_id}`, {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
@@ -121,7 +121,7 @@ const Artist = () => {
 
         const fetchAlbums = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/albums/artist/${artist_id}`, {
+                const response = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/albums/artist/${artist_id}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -144,7 +144,7 @@ const Artist = () => {
 
         const fetchArtistRating = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/artists/rating/${artist_id}`, {
+                const response = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/artists/rating/${artist_id}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -164,7 +164,7 @@ const Artist = () => {
 
         const fetchNumberOfFollowers = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/follows/getNumberOfFollowers/${artist_id}`, {
+                const response = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/follows/getNumberOfFollowers/${artist_id}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -192,7 +192,7 @@ const Artist = () => {
     const followArtist = async () => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch('http://localhost:5000/follows/followArtist', {
+            const response = await fetch('https://zavrsni-rad-backend-gdih.onrender.com/follows/followArtist', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -218,7 +218,7 @@ const Artist = () => {
     const unfollowArtist = async () => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch('http://localhost:5000/follows/unfollowArtist', {
+            const response = await fetch('https://zavrsni-rad-backend-gdih.onrender.com/follows/unfollowArtist', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -245,7 +245,7 @@ const Artist = () => {
     const deleteReview = async (review_id) => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch('http://localhost:5000/reviews/deleteReview', {
+            const response = await fetch('https://zavrsni-rad-backend-gdih.onrender.com/reviews/deleteReview', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -269,7 +269,7 @@ const Artist = () => {
     const handleReport = async (reviewId) => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch('http://localhost:5000/reports/newReport', {
+            const response = await fetch('https://zavrsni-rad-backend-gdih.onrender.com/reports/newReport', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -315,7 +315,7 @@ const Artist = () => {
         };
 
         try {
-            const response = await fetch('http://localhost:5000/reviews/reviewArtist', {
+            const response = await fetch('https://zavrsni-rad-backend-gdih.onrender.com/reviews/reviewArtist', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -407,7 +407,7 @@ const Artist = () => {
                                 {currentAlbums.map((album) => (
                                     <li key={album.album_id} className="bg-gray-800 p-4 rounded">
                                         <h4 className="text-xl font-semibold">
-                                            <a href={`http://localhost:3000/albums/${album.album_id}`} className="hover:underline">
+                                            <a href={`https://zavrsni-rad-two.vercel.app/albums/${album.album_id}`} className="hover:underline">
                                                 {album.album_title}
                                                 <img src={album.cover_image} alt='' className="w-full h-48 object-cover mt-2 rounded" />
                                             </a>
@@ -426,8 +426,8 @@ const Artist = () => {
                         {!deleteStatus && artistReviews && currentReviews.map((review) => (
                             <div key={review.review_id} className="bg-gray-800 p-4 rounded mb-4">
                                 <p className="flex items-center">
-                                    <a href={`http://localhost:3000/users/${review.username}`}>
-                                        <img src={`http://localhost:5000${review.profile_picture}`} alt='avatar' className="w-6 h-6 rounded-full mr-2" />
+                                    <a href={`https://zavrsni-rad-two.vercel.app/users/${review.username}`}>
+                                        <img src={`https://zavrsni-rad-backend-gdih.onrender.com${review.profile_picture}`} alt='avatar' className="w-6 h-6 rounded-full mr-2" />
                                         {review.username} - {new Date(review.review_date).toLocaleDateString('en-gb')}
                                     </a>
                                 </p>

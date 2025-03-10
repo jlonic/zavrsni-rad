@@ -21,7 +21,7 @@ const Dashboard = () => {
 
   const getFollows = useCallback(async () => {
     try {
-      const response = await fetch(`http://localhost:5000/follows/getFollows`, {
+      const response = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/follows/getFollows`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ const Dashboard = () => {
     let allReviews = [];
     try {
       for (let i = 0; i < follows.length; i++) {
-        const response1 = await fetch(`http://localhost:5000/reviews/artist-reviews/${follows[i].username}`, {
+        const response1 = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/reviews/artist-reviews/${follows[i].username}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ const Dashboard = () => {
           setMessage(data1.message);
         }
 
-        const response2 = await fetch(`http://localhost:5000/reviews/album-reviews/${follows[i].username}`, {
+        const response2 = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/reviews/album-reviews/${follows[i].username}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -79,7 +79,7 @@ const Dashboard = () => {
           setMessage(data2.message);
         }
 
-        const response3 = await fetch(`http://localhost:5000/reviews/track-reviews/${follows[i].username}`, {
+        const response3 = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/reviews/track-reviews/${follows[i].username}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -139,7 +139,7 @@ const Dashboard = () => {
                 {recent.artist_id && (
                   <div>
                     <p className=''>
-                      <a href={`http://localhost:3000/artists/${recent.artist_id}`}>
+                      <a href={`https://zavrsni-rad-two.vercel.app/artists/${recent.artist_id}`}>
                         <img src={recent.artist_image} alt={recent.artist_name} style={{ width: '64px', height: '64px' }} />
                         {recent.artist_name.slice(0, 20)}
                         {recent.artist_name.length > 20 && '...'}
@@ -150,7 +150,7 @@ const Dashboard = () => {
                 {recent.album_id && (
                   <div>
                     <p>
-                      <a href={`http://localhost:3000/albums/${recent.album_id}`}>
+                      <a href={`https://zavrsni-rad-two.vercel.app/albums/${recent.album_id}`}>
                         <img src={recent.cover_image} alt={recent.album_title} style={{ width: '64px', height: '64px' }} />
                         {recent.album_title.slice(0, 15)}
                         {recent.album_title.length > 15 && '...'}
@@ -161,7 +161,7 @@ const Dashboard = () => {
                 {recent.track_id && (
                   <div>
                     <p>
-                      <a href={`http://localhost:3000/tracks/${recent.track_id}`}>
+                      <a href={`https://zavrsni-rad-two.vercel.app/tracks/${recent.track_id}`}>
                         <img src={recent.cover_image} alt={recent.track_title} style={{ width: '64px', height: '64px' }} />
                         {recent.track_title.slice(0, 15)}
                         {recent.track_title.length > 15 && '...'}

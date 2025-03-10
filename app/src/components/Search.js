@@ -13,7 +13,7 @@ const Search = () => {
 
         if (query.length > 1) {
             try {
-                const response = await fetch(`http://localhost:5000/search/${category}/${query}`, {
+                const response = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/search/${category}/${query}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ const Search = () => {
                             {results.slice(0, 10).map((result, index) => (
                                 result.artist_name && (
                                     <div key={index} className='px-4 py-2 border-b border-gray-200'>
-                                        <a href={`http://localhost:3000/artists/${result.artist_id}`} className='flex items-center space-x-2'>
+                                        <a href={`https://zavrsni-rad-two.vercel.app/artists/${result.artist_id}`} className='flex items-center space-x-2'>
                                             <img src={result.artist_image} alt='' className="w-10 h-10 mr-2 rounded-full" />
                                             <span className='font-bold'>{result.artist_name}</span>
                                         </a>
@@ -83,7 +83,7 @@ const Search = () => {
                             {results.slice(0, 10).map((result, index) => (
                                 result.album_title && (
                                     <div key={index} className='px-4 py-2 border-b border-gray-200'>
-                                        <a href={`http://localhost:3000/albums/${result.album_id}`} className='flex items-center space-x-2'>
+                                        <a href={`https://zavrsni-rad-two.vercel.app/albums/${result.album_id}`} className='flex items-center space-x-2'>
                                             <img src={result.cover_image} alt='' className="w-10 h-10 rounded-full" />
                                             <span className='font-bold'>{result.album_title}</span>
                                         </a>
@@ -102,7 +102,7 @@ const Search = () => {
                             {results.slice(0, 10).map((result, index) => (
                                 result.track_title && (
                                     <div key={index} className='px-4 py-2 border-b border-gray-200 '>
-                                        <a href={`http://localhost:3000/tracks/${result.track_id}`} className='flex items-center space-x-2'>
+                                        <a href={`https://zavrsni-rad-two.vercel.app/tracks/${result.track_id}`} className='flex items-center space-x-2'>
                                             <img src={result.cover_image} alt='' className="w-10 h-10 mr-2 rounded-full" />
                                             <span className='font-bold'>{result.track_title}</span>
                                         </a>
@@ -118,8 +118,8 @@ const Search = () => {
                             {results.slice(0, 10).map((result, index) => (
                                 result.username && (
                                     <div key={index} className='px-4 py-2 border-b border-gray-200'>
-                                        <a href={`http://localhost:3000/users/${result.username}`} className='flex items-center space-x-2'>
-                                            <img src={`http://localhost:5000${result.profile_picture}`} alt='' className="w-10 h-10 mr-2 rounded-full" />
+                                        <a href={`https://zavrsni-rad-two.vercel.app/users/${result.username}`} className='flex items-center space-x-2'>
+                                            <img src={`https://zavrsni-rad-backend-gdih.onrender.com${result.profile_picture}`} alt='' className="w-10 h-10 mr-2 rounded-full" />
                                             <span className='font-bold'>{result.username}</span>
                                         </a>
                                     </div>

@@ -17,7 +17,7 @@ const ChangePassword = () => {
         }
 
         try {
-            const response = await fetch(`http://localhost:5000/users/updatePassword/`, {
+            const response = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/users/updatePassword/`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

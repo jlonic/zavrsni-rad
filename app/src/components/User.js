@@ -45,7 +45,7 @@ const User = () => {
             const token = localStorage.getItem('token');
 
             try {
-                const userResponse = await fetch(`http://localhost:5000/users/${username}`, {
+                const userResponse = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/users/${username}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ const User = () => {
                 const userData = await userResponse.json();
                 if (userResponse.ok) {
                     setUser(userData[0]);
-                    const followStatusResponse = await fetch(`http://localhost:5000/follows/checkFollowStatus/${userData[0].user_id}`, {
+                    const followStatusResponse = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/follows/checkFollowStatus/${userData[0].user_id}`, {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
@@ -87,7 +87,7 @@ const User = () => {
         const fetchUserFavorites = async () => {
             const token = localStorage.getItem('token');
             try {
-                const response = await fetch(`http://localhost:5000/favorites/user-favorite-albums/${username}`, {
+                const response = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/favorites/user-favorite-albums/${username}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -106,7 +106,7 @@ const User = () => {
             }
 
             try {
-                const response = await fetch(`http://localhost:5000/favorites/user-favorite-tracks/${username}`, {
+                const response = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/favorites/user-favorite-tracks/${username}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -128,7 +128,7 @@ const User = () => {
         const recentlyReviewed = async () => {
             const token = localStorage.getItem('token');
             try {
-                const response1 = await fetch(`http://localhost:5000/reviews/artist-reviews/${username}`, {
+                const response1 = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/reviews/artist-reviews/${username}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -141,7 +141,7 @@ const User = () => {
                     setMessage(data1.message);
                 }
 
-                const response2 = await fetch(`http://localhost:5000/reviews/album-reviews/${username}`, {
+                const response2 = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/reviews/album-reviews/${username}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -154,7 +154,7 @@ const User = () => {
                     setMessage(data2.message);
                 }
 
-                const response3 = await fetch(`http://localhost:5000/reviews/track-reviews/${username}`, {
+                const response3 = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/reviews/track-reviews/${username}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -183,7 +183,7 @@ const User = () => {
     const followUser = async () => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch('http://localhost:5000/follows/followUser', {
+            const response = await fetch('https://zavrsni-rad-backend-gdih.onrender.com/follows/followUser', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -210,7 +210,7 @@ const User = () => {
     const unfollowUser = async () => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch('http://localhost:5000/follows/unfollowUser', {
+            const response = await fetch('https://zavrsni-rad-backend-gdih.onrender.com/follows/unfollowUser', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -251,7 +251,7 @@ const User = () => {
                     <>
                         <div className="flex justify-between items-center">
                             <div className="flex items-center">
-                                <img src={`http://localhost:5000${user.profile_picture}`} alt='' className='h-48 w-48 rounded-full' />
+                                <img src={`https://zavrsni-rad-backend-gdih.onrender.com${user.profile_picture}`} alt='' className='h-48 w-48 rounded-full' />
                                 <br />
                                 <div className="text-6xl font-bold pl-4 pr-4">
                                     {user.username}
@@ -269,7 +269,7 @@ const User = () => {
                                                 </button>
                                             )}
                                             <button className="bg-gray-900 text-white px-4 py-2 rounded ml-2">
-                                                <a href={`http://localhost:3000/messages/${user.user_id}`}>Message</a>
+                                                <a href={`https://zavrsni-rad-two.vercel.app/messages/${user.user_id}`}>Message</a>
                                             </button>
                                         </div>
                                     </>
@@ -293,7 +293,7 @@ const User = () => {
                                                     <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                                                         {currentAlbums.map((album) => (
                                                             <li key={album.album_id} className="bg-gray-800 p-4 rounded">
-                                                                <a href={`http://localhost:3000/albums/${album.album_id}`} className="w-full h-48 object-cover mt-2 rounded">
+                                                                <a href={`https://zavrsni-rad-two.vercel.app/albums/${album.album_id}`} className="w-full h-48 object-cover mt-2 rounded">
                                                                     <img src={album.cover_image} alt='' className='w-full h-48 object-cover mt-2 rounded' />
                                                                     <span>{album.album_title}</span>
                                                                 </a>
@@ -317,7 +317,7 @@ const User = () => {
                                             <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                                                 {currentTracks.map((track) => (
                                                     <li key={track.track_id} class="bg-gray-800 p-4 rounded">
-                                                        <a href={`http://localhost:3000/tracks/${track.track_id}`} class="w-full h-48 object-cover mt-2 rounded">
+                                                        <a href={`https://zavrsni-rad-two.vercel.app/tracks/${track.track_id}`} class="w-full h-48 object-cover mt-2 rounded">
                                                             <img src={track.cover_image} alt='' className='w-full h-48 object-cover mt-2 rounded' />
                                                             {track.track_title}
                                                         </a>
@@ -341,7 +341,7 @@ const User = () => {
                                                     <li key={index} className="bg-gray-800 p-4 rounded">
                                                         {review.artist_id && (
                                                             <>
-                                                                <a href={`http://localhost:3000/artists/${review.artist_id}`} className="w-full h-48 object-cover mt-2 rounded">
+                                                                <a href={`https://zavrsni-rad-two.vercel.app/artists/${review.artist_id}`} className="w-full h-48 object-cover mt-2 rounded">
                                                                     <img src={review.artist_image} alt={review.artist_name} className='w-full h-48 object-cover mt-2 rounded' />
                                                                     <p>{review.artist_name}</p>
                                                                 </a>
@@ -349,7 +349,7 @@ const User = () => {
                                                         )}
                                                         {review.album_id && (
                                                             <>
-                                                                <a href={`http://localhost:3000/albums/${review.album_id}`} className="w-full h-48 object-cover mt-2 rounded">
+                                                                <a href={`https://zavrsni-rad-two.vercel.app/albums/${review.album_id}`} className="w-full h-48 object-cover mt-2 rounded">
                                                                     <img src={review.cover_image} alt={review.album_title} className='w-full h-48 object-cover mt-2 rounded' />
                                                                     <p>{review.album_title}</p>
                                                                 </a>
@@ -357,7 +357,7 @@ const User = () => {
                                                         )}
                                                         {review.track_id && (
                                                             <>
-                                                                <a href={`http://localhost:3000/tracks/${review.track_id}`} className="w-full h-48 object-cover mt-2 rounded">
+                                                                <a href={`https://zavrsni-rad-two.vercel.app/tracks/${review.track_id}`} className="w-full h-48 object-cover mt-2 rounded">
                                                                     <img src={review.cover_image} alt={review.track_title} className='w-full h-48 object-cover mt-2 rounded' />
                                                                     <p>{review.track_title}</p>
                                                                 </a>

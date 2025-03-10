@@ -37,10 +37,10 @@ const Charts = () => {
             }
         };
 
-        fetchData('http://localhost:5000/charts/top-100-artists', setTopArtists);
-        fetchData('http://localhost:5000/charts/top-albums', setTopAlbums);
-        fetchData('http://localhost:5000/charts/global-200', setGlobal200);
-        fetchData('http://localhost:5000/charts/hot-100', setHot100);
+        fetchData('https://zavrsni-rad-backend-gdih.onrender.com/charts/top-100-artists', setTopArtists);
+        fetchData('https://zavrsni-rad-backend-gdih.onrender.com/charts/top-albums', setTopAlbums);
+        fetchData('https://zavrsni-rad-backend-gdih.onrender.com/charts/global-200', setGlobal200);
+        fetchData('https://zavrsni-rad-backend-gdih.onrender.com/charts/hot-100', setHot100);
     }, []);
 
     const renderChart = (chart, type) => {

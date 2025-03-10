@@ -35,7 +35,7 @@ const Track = () => {
 
     const fetchTrackReviews = useCallback(async () => {
         try {
-            const response = await fetch(`http://localhost:5000/reviews/track/${track_id}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/reviews/track/${track_id}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ const Track = () => {
         }
         const fetchTrack = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/tracks/${track_id}`, {
+                const response = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/tracks/${track_id}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ const Track = () => {
                 if (response.ok) {
                     setTrack(data[0]);
                     setDeleteStatus(data[0].is_deleted);
-                    const favoriteStatusResponse = await fetch(`http://localhost:5000/favorites/check-track-status/${track_id}`, {
+                    const favoriteStatusResponse = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/favorites/check-track-status/${track_id}`, {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
@@ -108,7 +108,7 @@ const Track = () => {
 
         const fetchTrackRating = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/tracks/rating/${track_id}`, {
+                const response = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/tracks/rating/${track_id}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -135,7 +135,7 @@ const Track = () => {
     const deleteReview = async (review_id) => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch('http://localhost:5000/reviews/deleteReview', {
+            const response = await fetch('https://zavrsni-rad-backend-gdih.onrender.com/reviews/deleteReview', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -159,7 +159,7 @@ const Track = () => {
     const handleReport = async (reviewId) => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch('http://localhost:5000/reports/newReport', {
+            const response = await fetch('https://zavrsni-rad-backend-gdih.onrender.com/reports/newReport', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -204,7 +204,7 @@ const Track = () => {
         };
 
         try {
-            const response = await fetch('http://localhost:5000/reviews/reviewTrack', {
+            const response = await fetch('https://zavrsni-rad-backend-gdih.onrender.com/reviews/reviewTrack', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -231,7 +231,7 @@ const Track = () => {
     const addToFavorites = async () => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`http://localhost:5000/favorites/add-favorite-track/`, {
+            const response = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/favorites/add-favorite-track/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -258,7 +258,7 @@ const Track = () => {
     const removeFromFavorites = async () => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`http://localhost:5000/favorites/remove-favorite-track/`, {
+            const response = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/favorites/remove-favorite-track/`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -346,8 +346,8 @@ const Track = () => {
                             {trackReviews && currentReviews.map((review) => (
                                 <div key={review.review_id} className="bg-gray-800 p-4 rounded mb-4">
                                     <p className="flex items-center">
-                                        <a href={`http://localhost:3000/users/${review.username}`}>
-                                            <img src={`http://localhost:5000${review.profile_picture}`} alt='avatar' className="w-6 h-6 rounded-full mr-2" />
+                                        <a href={`https://zavrsni-rad-two.vercel.app/users/${review.username}`}>
+                                            <img src={`https://zavrsni-rad-backend-gdih.onrender.com${review.profile_picture}`} alt='avatar' className="w-6 h-6 rounded-full mr-2" />
                                             {review.username}
                                         </a>
                                     </p>

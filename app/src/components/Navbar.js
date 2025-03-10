@@ -16,7 +16,7 @@ const Navbar = () => {
     const fetchProfilePicture = useCallback(async () => {
         try {
             const decodedToken = jwtDecode(token);
-            const response = await fetch(`http://localhost:5000/users/${decodedToken.username}`);
+            const response = await fetch(`https://zavrsni-rad-backend-gdih.onrender.com/users/${decodedToken.username}`);
             const userData = await response.json();
             if (response.ok) {
                 setProfilePicture(userData[0].profile_picture);
@@ -63,7 +63,7 @@ const Navbar = () => {
                 <Notifications />
                 <div className="relative">
                     <button onClick={toggleProfileMenu} className="flex items-center focus:outline-none">
-                        <img src={`http://localhost:5000${profilePicture}`} alt='' className="w-12 h-12 rounded-full" />
+                        <img src={`https://zavrsni-rad-backend-gdih.onrender.com${profilePicture}`} alt='' className="w-12 h-12 rounded-full" />
                     </button>
                     {showProfileMenu && (
                         <div className="absolute right-0 mt-2 w-48 bg-gray-800 border-2 border-black rounded-lg shadow-lg py-1">
