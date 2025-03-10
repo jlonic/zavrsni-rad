@@ -47,6 +47,7 @@ const getTop100Artists = async (_, res) => {
         exec("/usr/src/app/venv/bin/python3 ./python-scripts/getTop100Artists.py", (error, data) => { //for running in docker
         // exec("python3 ./python-scripts/getTop100Artists.py", (error, data) => { //for running locally
             if (error) {
+                console.error(`Exec error: ${error.message}`);
                 return res.status(500).send({ message: "Error fetching top artists" });
             }
             res.json(JSON.parse(data));
