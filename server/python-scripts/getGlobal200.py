@@ -1,6 +1,18 @@
 import billboard
 import json
 
+def patch_billboard_session(): #temporary fix for billboard.py library
+    original_get_session = billboard._get_session_with_retries
+
+    def new_get_session_with_retries(max_retries):
+        session = original_get_session(max_retries)
+        session.headers.update({'User-Agent': 'Mozilla/5.0'})
+        return session
+
+    billboard._get_session_with_retries = new_get_session_with_retries
+
+patch_billboard_session()
+
 #current weeks top 200 songs based on sales and streams
 def get_global_200():
     chart = billboard.ChartData('billboard-global-200')
