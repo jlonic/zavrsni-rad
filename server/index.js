@@ -26,7 +26,7 @@ const path = require("path");
 
 //app.use(cors());
 const corsOptions = {
-    origin: "http://localhost:3000",
+    origin: "https://zavrsni-rad-two.vercel.app",
     credentials: true,
     optionsSuccessStatus: 200
 };
