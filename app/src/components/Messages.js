@@ -19,7 +19,7 @@ const Messages = () => {
     const getMessages = useCallback(async () => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/messages/getMessagesWithUser/${receiver_id}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/messages/getMessagesWithUser/${receiver_id}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -28,7 +28,7 @@ const Messages = () => {
             });
             const data = await response.json();
             if (response.ok) {
-                const getuser = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/users/get/${receiver_id}`, {
+                const getuser = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/users/get/${receiver_id}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -69,7 +69,7 @@ const Messages = () => {
             setUserId(decodedToken.user_id);
         }
 
-        const newSocket = io('https://zavrsni-rad-backend-43pq.onrender.com');
+        const newSocket = io('https://zavrsni-rad-backend-3u9x.onrender.com');
         setSocket(newSocket);
         getMessages();
     }, [navigate, getMessages]);
@@ -99,7 +99,7 @@ const Messages = () => {
             return;
         }
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/messages/sendMessage`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/messages/sendMessage`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -127,7 +127,7 @@ const Messages = () => {
             <Navbar />
             <div className='text-gray-200 p-4'>
                 <h1>
-                    <img src={`https://zavrsni-rad-backend-43pq.onrender.com${profilePicture}`} alt='' className="w-12 h-12 rounded-full"></img>{username}
+                    <img src={`https://zavrsni-rad-backend-3u9x.onrender.com${profilePicture}`} alt='' className="w-12 h-12 rounded-full"></img>{username}
                 </h1>
                 <div className="flex flex-col pt-6">
                     {messages.length > 0 ? (

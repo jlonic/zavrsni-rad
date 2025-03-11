@@ -19,7 +19,7 @@ const Notifications = () => {
     const getNotifications = async () => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/notifications/`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/notifications/`, {
                 headers: {
                     'GET': 'application/json',
                     'Authorization': `Bearer: ${token}`
@@ -40,7 +40,7 @@ const Notifications = () => {
     const deleteNotification = async (notification_id) => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/notifications/deleteNotification`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/notifications/deleteNotification`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ const Notifications = () => {
         const token = localStorage.getItem('token');
         let action = currentStatus ? 'markAsUnread' : 'markAsRead';
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/notifications/${action}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/notifications/${action}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

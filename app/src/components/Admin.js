@@ -79,7 +79,7 @@ const Admin = () => {
     const addArtist = async (artist_name) => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/admin/add-artist/`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/admin/add-artist/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -113,7 +113,7 @@ const Admin = () => {
 
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/artists/add`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/artists/add`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -139,7 +139,7 @@ const Admin = () => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/artists/${artistId}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/artists/${artistId}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -153,7 +153,7 @@ const Admin = () => {
                 setArtist_image(data[0].artist_image);
                 setArtist_info(data[0].artist_info);
             } else {
-                const softDeletedArtist = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/artists/soft-deleted/${artistId}`, {
+                const softDeletedArtist = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/artists/soft-deleted/${artistId}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -181,7 +181,7 @@ const Admin = () => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/artists/name/${artist_name}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/artists/name/${artist_name}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -201,7 +201,7 @@ const Admin = () => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/artists/update/${artistId}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/artists/update/${artistId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -224,7 +224,7 @@ const Admin = () => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/artists/soft-delete/${artistId}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/artists/soft-delete/${artistId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -247,7 +247,7 @@ const Admin = () => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/artists/restore/${artistId}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/artists/restore/${artistId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -270,7 +270,7 @@ const Admin = () => {
         const token = localStorage.getItem('token');
 
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/artists/all`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/artists/all`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -293,7 +293,7 @@ const Admin = () => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/artists/delete-all-data/${artistId}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/artists/delete-all-data/${artistId}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -321,7 +321,7 @@ const Admin = () => {
 
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/albums/add`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/albums/add`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -350,7 +350,7 @@ const Admin = () => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/albums/title/${album_title}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/albums/title/${album_title}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -370,7 +370,7 @@ const Admin = () => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/albums/${album_id}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/albums/${album_id}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -398,7 +398,7 @@ const Admin = () => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/albums/update/${album_id}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/albums/update/${album_id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -420,7 +420,7 @@ const Admin = () => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/albums/soft-delete/${album_id}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/albums/soft-delete/${album_id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -443,7 +443,7 @@ const Admin = () => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/albums/restore/${album_id}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/albums/restore/${album_id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -466,7 +466,7 @@ const Admin = () => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/albums/delete-all-data/${album_id}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/albums/delete-all-data/${album_id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -491,7 +491,7 @@ const Admin = () => {
 
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/albums/getAll/${limit}/${offset}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/albums/getAll/${limit}/${offset}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -520,7 +520,7 @@ const Admin = () => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/albums/artist-name/${artist_name}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/albums/artist-name/${artist_name}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -549,7 +549,7 @@ const Admin = () => {
 
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/tracks/add`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/tracks/add`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -576,7 +576,7 @@ const Admin = () => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/tracks/${track_id}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/tracks/${track_id}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -595,7 +595,7 @@ const Admin = () => {
                 setCover_image(data[0].cover_image);
                 setAlbum_title(data[0].album_title);
             } else {
-                const softDeletedTrack = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/tracks/soft-deleted/${track_id}`, {
+                const softDeletedTrack = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/tracks/soft-deleted/${track_id}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -628,7 +628,7 @@ const Admin = () => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/tracks/title/${track_title}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/tracks/title/${track_title}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -650,7 +650,7 @@ const Admin = () => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/tracks/update/${track_id}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/tracks/update/${track_id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -672,7 +672,7 @@ const Admin = () => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/tracks/soft-delete/${track_id}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/tracks/soft-delete/${track_id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -695,7 +695,7 @@ const Admin = () => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/tracks/restore/${track_id}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/tracks/restore/${track_id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -718,7 +718,7 @@ const Admin = () => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/tracks/delete/${track_id}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/tracks/delete/${track_id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -740,7 +740,7 @@ const Admin = () => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/tracks/album-name/${album_title}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/tracks/album-name/${album_title}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -763,7 +763,7 @@ const Admin = () => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/tracks/artist-name/${artist_name}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/tracks/artist-name/${artist_name}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -785,7 +785,7 @@ const Admin = () => {
     const getAllUsers = async () => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/users/all`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/users/all`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -808,7 +808,7 @@ const Admin = () => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/users/${username}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/users/${username}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -837,7 +837,7 @@ const Admin = () => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/users/update/${userId}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/users/update/${userId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -859,7 +859,7 @@ const Admin = () => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/users/delete/${userId}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/users/delete/${userId}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -881,7 +881,7 @@ const Admin = () => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/users/updatePassword/${userId}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/users/updatePassword/${userId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -903,7 +903,7 @@ const Admin = () => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/users/removeProfilePicture/${userId}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/users/removeProfilePicture/${userId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1749,7 +1749,7 @@ const Admin = () => {
                                         <div>
                                             <p className="text-gray-300">User ID: {user.user_id}</p>
                                             <p className="text-xl text-white">Username: {user.username}</p>
-                                            <img src={`https://zavrsni-rad-backend-43pq.onrender.com${user.profile_picture}`} alt='' className="w-12 h-12 rounded-md mt-2" />
+                                            <img src={`https://zavrsni-rad-backend-3u9x.onrender.com${user.profile_picture}`} alt='' className="w-12 h-12 rounded-md mt-2" />
                                             <p className="text-gray-300">Email: {user.email}</p>
                                             <p className="text-gray-300">Role: {user.user_type}</p>
                                         </div>
@@ -1779,7 +1779,7 @@ const Admin = () => {
                                             <p className="text-gray-300">User ID: {userId}</p>
                                         </div>
                                         <div className="bg-gray-700 p-4 rounded-md flex items-center justify-between">
-                                            <img src={`https://zavrsni-rad-backend-43pq.onrender.com${profile_picture}`} alt='' className="w-12 h-12 rounded-md" />
+                                            <img src={`https://zavrsni-rad-backend-3u9x.onrender.com${profile_picture}`} alt='' className="w-12 h-12 rounded-md" />
                                             <p className="text-gray-300">
                                                 <button type="button" onClick={removeProfilePicture} className="text-red-500 focus:outline-none">
                                                     Remove profile picture
@@ -1835,7 +1835,7 @@ const Admin = () => {
                                 <div className="mt-4 space-y-4">
                                     <div className="bg-gray-700 p-4 rounded-md">
                                         <p className="text-gray-300">User ID: {userId}</p>
-                                        <img src={`https://zavrsni-rad-backend-43pq.onrender.com${profile_picture}`} alt='' className="w-12 h-12 rounded-md" />
+                                        <img src={`https://zavrsni-rad-backend-3u9x.onrender.com${profile_picture}`} alt='' className="w-12 h-12 rounded-md" />
                                         <p className="text-gray-300">Username: {username}</p>
                                         <p className="text-gray-300">Email: {email}</p>
                                     </div>

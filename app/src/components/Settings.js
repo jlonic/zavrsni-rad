@@ -12,7 +12,7 @@ const Settings = () => {
     const fetchProfilePicture = useCallback(async () => {
         try {
             const decodedToken = jwtDecode(token);
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/users/${decodedToken.username}`);
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/users/${decodedToken.username}`);
             const userData = await response.json();
             if (response.ok) {
                 setProfilePicture(userData[0].profile_picture);
@@ -28,7 +28,7 @@ const Settings = () => {
     const removeProfilePicture = async () => {
         try {
             const decodedToken = jwtDecode(token);
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/users/removeProfilePicture/${decodedToken.user_id}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/users/removeProfilePicture/${decodedToken.user_id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

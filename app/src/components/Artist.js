@@ -42,7 +42,7 @@ const Artist = () => {
 
     const fetchArtistReviews = useCallback(async () => {
         try {
-            const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/reviews/artist/${artist_id}`, {
+            const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/reviews/artist/${artist_id}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -74,7 +74,7 @@ const Artist = () => {
         }
         const fetchArtistAndFollowStatus = async () => {
             try {
-                const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/artists/${artist_id}`, {
+                const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/artists/${artist_id}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -86,7 +86,7 @@ const Artist = () => {
                 if (response.ok) {
                     setArtist(data[0]);
                     setDeleteStatus(data[0].is_deleted);
-                    const followStatusResponse = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/follows/checkArtistFollowStatus/${data[0].artist_id}`, {
+                    const followStatusResponse = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/follows/checkArtistFollowStatus/${data[0].artist_id}`, {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
@@ -121,7 +121,7 @@ const Artist = () => {
 
         const fetchAlbums = async () => {
             try {
-                const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/albums/artist/${artist_id}`, {
+                const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/albums/artist/${artist_id}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -144,7 +144,7 @@ const Artist = () => {
 
         const fetchArtistRating = async () => {
             try {
-                const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/artists/rating/${artist_id}`, {
+                const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/artists/rating/${artist_id}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -164,7 +164,7 @@ const Artist = () => {
 
         const fetchNumberOfFollowers = async () => {
             try {
-                const response = await fetch(`https://zavrsni-rad-backend-43pq.onrender.com/follows/getNumberOfFollowers/${artist_id}`, {
+                const response = await fetch(`https://zavrsni-rad-backend-3u9x.onrender.com/follows/getNumberOfFollowers/${artist_id}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -192,7 +192,7 @@ const Artist = () => {
     const followArtist = async () => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch('https://zavrsni-rad-backend-43pq.onrender.com/follows/followArtist', {
+            const response = await fetch('https://zavrsni-rad-backend-3u9x.onrender.com/follows/followArtist', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -218,7 +218,7 @@ const Artist = () => {
     const unfollowArtist = async () => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch('https://zavrsni-rad-backend-43pq.onrender.com/follows/unfollowArtist', {
+            const response = await fetch('https://zavrsni-rad-backend-3u9x.onrender.com/follows/unfollowArtist', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -245,7 +245,7 @@ const Artist = () => {
     const deleteReview = async (review_id) => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch('https://zavrsni-rad-backend-43pq.onrender.com/reviews/deleteReview', {
+            const response = await fetch('https://zavrsni-rad-backend-3u9x.onrender.com/reviews/deleteReview', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -269,7 +269,7 @@ const Artist = () => {
     const handleReport = async (reviewId) => {
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch('https://zavrsni-rad-backend-43pq.onrender.com/reports/newReport', {
+            const response = await fetch('https://zavrsni-rad-backend-3u9x.onrender.com/reports/newReport', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -315,7 +315,7 @@ const Artist = () => {
         };
 
         try {
-            const response = await fetch('https://zavrsni-rad-backend-43pq.onrender.com/reviews/reviewArtist', {
+            const response = await fetch('https://zavrsni-rad-backend-3u9x.onrender.com/reviews/reviewArtist', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -427,7 +427,7 @@ const Artist = () => {
                             <div key={review.review_id} className="bg-gray-800 p-4 rounded mb-4">
                                 <p className="flex items-center">
                                     <a href={`https://zavrsni-rad-two.vercel.app/users/${review.username}`}>
-                                        <img src={`https://zavrsni-rad-backend-43pq.onrender.com${review.profile_picture}`} alt='avatar' className="w-6 h-6 rounded-full mr-2" />
+                                        <img src={`https://zavrsni-rad-backend-3u9x.onrender.com${review.profile_picture}`} alt='avatar' className="w-6 h-6 rounded-full mr-2" />
                                         {review.username} - {new Date(review.review_date).toLocaleDateString('en-gb')}
                                     </a>
                                 </p>
