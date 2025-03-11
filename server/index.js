@@ -3,6 +3,7 @@ const app = express();
 const cors = require("cors");
 const { Server } = require("socket.io");
 const http = require("http");
+const port = process.env.PORT || 5000;
 
 //import routes
 const artistRoutes = require("./routes/artistRoutes");
@@ -91,6 +92,6 @@ io.on("connection", (socket) => {
 });
 
 
-server.listen(5000, () => {
+server.listen(port, () => {
     console.log("server started ")
 }); 
