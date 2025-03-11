@@ -4,8 +4,8 @@ import json
 def patch_billboard_session(): #temporary fix for billboard.py library
     original_get_session = billboard._get_session_with_retries
 
-    def new_get_session_with_retries():
-        session = original_get_session(2)
+    def new_get_session_with_retries(max_retries = 2):
+        session = original_get_session(max_retries)
         session.headers.update({'User-Agent': 'Mozilla/5.0'})
         return session
 
