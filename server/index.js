@@ -77,7 +77,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: "https://zavrsni-rad-two.vercel.app/",
+        origin: "https://zavrsni-rad-two.vercel.app",
         methods: ["GET", "POST", "PUT", "DELETE"],
         allowedHeaders: ["Authorization", "Content-Type", "multipart/form-data"],
         credentials: true
